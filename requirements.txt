@@ -15,7 +15,6 @@ filelock==3.0.12
 gunicorn==21.2.0
 stripe==2.27.0
 dj-database-url==2.1.0
-django-cockroachdb==3.2.4
 python-dotenv==1.0.1
 django-postgresql==0.0.3
 backports.zoneinfo==0.2.1;python_version<"3.9"
