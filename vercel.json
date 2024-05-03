@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "jewelryshop/wsgi.py",
+        "src": "shoes_and_more/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
       },
@@ -21,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "jewelryshop/wsgi.py"
+        "dest": "shoes_and_more/wsgi.py"
       }
     ]
   }
