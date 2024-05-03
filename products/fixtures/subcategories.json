@@ -1,0 +1,106 @@
+[
+    {
+        "pk": 1,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "sandals",
+            "friendly_name": "Sandals"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "sneakers",
+            "friendly_name": "Sneakers"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "oxfords",
+            "friendly_name": "Oxfords"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "heels",
+            "friendly_name": "High Heels"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "boots",
+            "friendly_name": "Boots"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "mules",
+            "friendly_name": "Mules"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "flats",
+            "friendly_name": "Flats"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "outdoors",
+            "friendly_name": "Outdoor"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "loafers",
+            "friendly_name": "Loafers"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "slippers",
+            "friendly_name": "Slippers"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "accessories",
+            "friendly_name": "Accessories"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "sale",
+            "friendly_name": "Sale"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.subcategory",
+        "fields": {
+            "name": "new_arrivals",
+            "friendly_name": "New Arrivals"
+        }
+    }
+]

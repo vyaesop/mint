@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %} - Profile Page{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="my-5 fw-bold">My Profile</h2>
+                </div>
+            </div>
+            <div>
+                <p><strong>Hello, {{ profile }}.</strong></p>
+                <!-- Pills Nav -->
+                <ul class="nav nav-pills nav-justified mt-2 mb-4 mb-sm-5" id="profile-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#information">
+                            <i class="far fa-address-card"></i><br>
+                            My Information
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#purchases">
+                            <i class="fas fa-box-open"></i><br>
+                            My Purchases
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#reviews">
+                            <i class="fas fa-pen-alt"></i><br>
+                            Ratings / Reviews
+                        </a>
+                    </li>
+                </ul>
+                  
+                <!-- Pills Content -->
+                <div class="tab-content">
+                    <!-- My Information -->
+                    <div class="tab-pane container" id="information">
+                        <p class="mb-4 mb-sm-5">Update your delivery information.</p>
+                        <div class="row">
+                            <div class="col-12 col-md-7 mx-auto">
+                                <p class="fs-5 mb-4 p-2 w-100 fw-bold bg-beige">Default Delivery Information</p>
+                                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-brown mt-4 mb-5">Update Information</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- My Purchases -->
+                    <div class="tab-pane container fade" id="purchases">
+                        <div class="row mb-5">
+                            <div class="col-12 px-0">
+                                {% if orders %}
+                                    <p class="fs-5 mb-4 p-2 w-100 fw-bold bg-beige">Order History</p>
+                                    <div class="order-history table-responsive">
+                                        <table class="table table-sm table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order Number</th>
+                                                    <th>Date</th>
+                                                    <th>Items</th>
+                                                    <th>Order Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in orders %}
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{% url 'order_history' order.order_number %}"
+                                                            title="{{ order.order_number }}">
+                                                                {{ order.order_number|truncatechars:6 }}
+                                                            </a>
+                                                        </td>
+                                                        <td class="small">{{ order.date }}</td>
+                                                        <td>
+                                                            <ul class="list-unstyled">
+                                                                {% for item in order.lineitems.all %}
+                                                                    <li class="small">
+                                                                        {% if item.product.has_sizes %}
+                                                                            Size {{ item.product_size|upper }}
+                                                                        {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </td>
+                                                        <td class="small">${{ order.grand_total }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                {% else %}
+                                    <p class="mb-5">No order history.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ratings/ Reviews -->
+                    <div class="tab-pane container fade" id="reviews">
+                        <div class="row">
+                            <div class="col-12 mx-auto">
+                                <p class="mb-4">
+                                    How do you find the items? Help other people to make decisions 
+                                    to buy the products by giving reviews below!
+                                </p>
+                                <div class="row mb-5">
+                                    <!-- Display products that have been purchased by user, but not yet reviewed -->
+                                    {% for order in orders %}
+                                        {% for item in order.lineitems.all %}
+                                            {% if item.product.id not in reviews %}
+                                                <div class="col-12 col-lg-6">
+                                                    <div class="row g-0 my-3 item-to-be-reviewed">
+                                                        <div class="col-7 pe-2">
+                                                            <a href="{% url 'product_detail' item.product.id %}" 
+                                                                class="d-flex justify-content-center">
+                                                                {% if item.product.image %}
+                                                                    <img src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                                                {% else %}
+                                                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                                                {% endif %}
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-5 d-flex flex-column justify-content-center">
+                                                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                                            <p class="my-0">
+                                                                {% if item.product_size %}Size {{ item.product_size|upper }}{% endif %}
+                                                            </p>
+                                                            <a href="{% url 'add_review' item.product.id %}" class="btn btn-beige mt-3">
+                                                                <small><i class="fas fa-pen-alt"></i> Give Review</small>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'profiles/js/profiles.js' %}"></script>
+{% endblock %}

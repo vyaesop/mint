@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_title %} - Favorites Page{% endblock %}
+
+{% block page_header %}
+    <div class="navbar-offset"></div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="my-4 my-sm-5 fw-bold">Favorites</h2>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <!-- If favorites exist, display the products -->
+                {% if favorites %}
+                    {% for product in favorites.products.all %}
+                    <div class="col-6 col-md-4 col-lg-3" id="card-{{ product.id }}">
+                        <div class="card mx-auto">
+                            <div>
+                                <!-- Product's image -->
+                                {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" 
+                                            alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" 
+                                            alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                                <!-- Remove from favorites button -->
+                                <div class="circle-overlay position-abs">
+                                    <a href="{% url 'remove_from_favorites' product.id %}" 
+                                        role="button" class="btn-fav" aria-label="add to favorites">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Product's info -->
+                            <div class="card-body pt-1 ps-0 pb-0">
+                                <p class="card-text mb-0">{{ product.name }}</p>
+                                <p class="mb-0 text-start fw-bold">${{ product.price }}</p>
+                                {% if product.rating %}
+                                    <small class="text-muted">
+                                        <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5
+                                    </small>
+                                {% else %}
+                                    <small class="text-muted">No Rating</small>
+                                {% endif %}
+                            </div>
+                            <!-- Add to Bag functionality -->
+                            <div class="card-footer pt-3">
+                                <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        {% if product.has_sizes %}
+                                            <div class="col-12">
+                                                <select class="form-control form-select rounded-0 w-100" 
+                                                    name="product_size" id="product_size_{{ product.id }}" required>
+                                                    <option value="" disabled selected>Choose a size</option>
+                                                    {% if product.category.name == 'women' %}
+                                                        {% for size in sizes_women %}
+                                                        <option value="{{ size }}">{{ size }}</option>
+                                                        {% endfor %}
+                                                    {% elif product.category.name == 'men' %}
+                                                        {% for size in sizes_men %}
+                                                            <option value="{{ size }}">{{ size }}</option>
+                                                        {% endfor %}
+                                                    {% else %}
+                                                        {% for size in sizes_kids %}
+                                                            <option value="{{ size }}">{{ size }}</option>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                        {% elif product.has_cloth_sizes %}
+                                            <div class="col-12">
+                                                <label class="m-0" for="product_size"><strong>Size:</strong></label>
+                                                <select class="form-control form-select rounded-0 w-50" 
+                                                    name="product_size" id='id_product_size' required>
+                                                    <option value="" disabled selected>Choose a size</option>
+                                                        {% for size in sizes_cloth %}
+                                                        <option value="{{ size }}">{{ size }}</option>
+                                                        {% endfor %}
+                                                </select>
+                                            </div>
+                                        
+                                        {% else %}
+                                            <div class="col-12">
+                                                <div>
+                                                    <p class="fs-6 mb-2 pt-1">No sizes</p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card-footer col-12">
+                                            <input type="submit" class="btn btn-brown mt-2 w-100 btn-add" 
+                                                value="Add to Bag" id="{{ product.id }}">
+                                        </div>
+                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            <!-- If favorites list is empty -->
+            {% else %}
+                <div class="col">
+                    <p class="mt-5">
+                        <small>
+                            Your favorite list is empty. Do you want to save your 
+                            favorite items? Click the heart symbol at the top right 
+                            corner on the item's image.
+                        </small>
+                        </p>
+                    <button class="btn btn-beige btn-lg">Browse Products</button>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,56 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #000;
+    background-color: #E8DCD5;
+}
+
+.nav-pills > .nav-item:first-child, 
+.nav-pills > .nav-item:first-child + .nav-item {
+    border-right: 1px #000 solid;
+}
+
+#profile-update-form .form-control {
+    color: #000;
+    border: 1px solid #000;
+}
+
+.profile-form-input::-webkit-input-placeholder,
+.profile-form-input::-moz-placeholder,
+.profile-form-input:-ms-input-placeholder,
+.profile-form-input::-ms-input-placeholder,
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+.item-to-be-reviewed img {
+    width: 80%;
+}
+
+/* Media Queries */
+/* Very small mobile */
+@media screen and (max-width: 400px) {
+    .form-control, 
+    .form-check,
+    .table {
+        font-size: 14px;
+    }
+    .item-to-be-reviewed img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,465 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #fff;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.text-headings {
+    font-family: 'DM Serif Display', serif;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.bg-beige {
+    background-color: #E8DCD5;
+}
+
+.bg-salmon {
+    background-color: #a5554c;
+    color: #fff;
+}
+
+/* Buttons */
+
+.btn {
+    padding: 0.75rem 1.5rem; 
+    border-radius: 0%;
+}
+
+.btn-beige {
+    background-color: #E8DCD5;
+    color: #000;
+    border: 1px solid #E8DCD5;
+}
+
+.btn-beige-inverted {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #E8DCD5;
+}
+
+.btn-brown {
+    background-color: #644536;
+    color: #fff;
+    border: 1px solid #644536;
+}
+
+.btn-brown-inverted {
+    background-color: #fff;
+    color: #644536;
+    border: 1px solid #644536;
+}
+
+.btn-brown:hover {
+    background-color: #8a6553;
+    color: #fff;
+    border: 1px solid #8a6553;
+}
+
+.btn-beige:hover {
+    background-color: #b4a69d;
+    color: #000;
+    border: 1px solid #b4a69d;
+}
+
+/* Navbar & Footer*/
+
+.nav-link,
+.navbar-light .navbar-nav .nav-link {
+    color: #000;
+    padding: 0.5rem;
+}
+
+.search-query {
+    max-width: 400px;
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    line-height: 0.75;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,1);
+    border: none;
+}
+
+.label-bag {
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.navbar-offset {
+    padding-top: 177px;
+}
+
+.search-query input {
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: #E8DCD5;
+    border-radius: 0%;
+}
+
+.button-icon {
+    border: none;
+    background-color: #E8DCD5;
+    border-bottom: 1px solid #000;
+}
+
+.dropdown-menu {
+    min-width: 8rem;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active,
+.navbar-light .navbar-nav .nav-link:focus,
+footer a:hover,
+footer a:active,
+footer a:focus {
+    color: #7a413b;
+}
+
+footer {
+    font-size: 14px;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: rgba(256, 256, 256, 60%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+/* Home Page */
+
+.text-hero {
+    font-size: 5rem;
+}
+
+.hero {
+	background: url('/media/hero.jpg') no-repeat center center;
+	background-size: cover;
+    height: calc(100vh - 164px);
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 30%);
+    height: 100%;
+}
+
+.logo {
+    background: url('/static/images/logo.png') no-repeat center center;
+    background-size: contain;
+    height: 80px;
+    width: 100px;
+}
+
+.btn-bottom {
+    bottom: 10px;
+}
+
+.btn-home {
+    letter-spacing: 2px;
+    font-family: 'DM Serif Display', serif;
+    text-transform: uppercase;
+}
+
+.img-sale {
+    background: url('/media/sale-mobile.jpg') no-repeat center center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+}
+
+.img-accessories {
+    background: url('/media/accessories-promo.jpg') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    width: auto;
+}
+
+.bg-light-rose {
+    background-color: #E4CBC8;
+}
+
+.main-carousel .card {
+    max-width: 12rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+/* Products Page */
+
+.card {
+    max-width: 19rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    border: none;
+}
+
+#back-to-top {
+    background-color: rgba(178, 103, 94, 0.7);
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10vh;
+    right: 10px;
+    cursor: pointer;
+}
+
+.star-rating {
+    color: #FDC542;
+}
+
+/* Individual Product Page */
+
+.box-shadow {
+    -webkit-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* Toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+    max-width: 90vw;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Favorites Page and Buttons*/
+
+.position-abs {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.btn-fav .fas {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.circle-overlay {
+    background-color: rgba(256, 256, 256, 60%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.fa-heart,
+.fa-trash-alt {
+    font-size: 18px;
+}
+
+.card-footer {
+    background-color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+}
+
+/* Bag Page */
+
+.img-creditcard {
+    width: 200px;
+}
+
+/* Checkout Page */
+
+select:invalid,
+select option[value=""] {
+    color: #6c757d !important;
+}
+
+/* Allauth */
+
+.allauth-form-inner-content {
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 10px;
+    background-color: #f1eeee;
+}
+
+.allauth-form-inner-content p,
+.allauth-form-inner-content h2 {
+    text-align: center;
+}
+
+.allauth-form-inner-content .form-group {
+    padding-top: 1rem;
+}
+
+.allauth-form-inner-content .btn-allauth {
+    padding-top: 2.5rem;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+/* Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0;
+}
+
+
+/* --------- MEDIA QUERIES --------- */
+/* Slightly larger container on xl screens  */
+
+@media screen and (min-width: 1200px) {
+    .container-xxl {
+      max-width: 80%;
+    }
+    
+    .img-sale {
+        background: url('/media/sale-desktop.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+/* Mobile and tablet */
+
+@media screen and (max-width: 991px) {
+    .logo {
+        height: 50px;
+        width: 65px;
+    }
+
+    .hero {
+        background: url('/media/hero.jpg') no-repeat center center;
+        background-size: cover;
+        height: calc(100vh - 109px);
+    }
+
+    .text-hero {
+        font-size: 3rem;
+    }
+
+    .navbar-offset {
+        padding-top: 109px;
+    }
+}
+
+/* Very small mobile */
+
+@media screen and (max-width: 400px) {
+    body p,
+    body li,
+    body a,
+    .nav-link .fa-heart,
+    .form-select,
+    .form-control, 
+    label,
+    .btn {
+        font-size: 0.875rem;
+    }
+    
+    .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .navbar .container-fluid {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .logo-font {
+        font-size: 0.875rem;
+    }
+
+    .navbar-offset {
+        padding-top: 90px;
+    }
+
+    .hero {
+        height: calc(100vh - 90px);
+    }
+}
